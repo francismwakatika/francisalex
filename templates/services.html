@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Hero Section with Background Image -->
+<div class="position-relative" style="height: 35.6em;">
+    <img class="img-fluid w-100 h-100" src="{% static 'vv.jpg' %}" alt="Services Banner" />
+    <div class="position-absolute top-0 start-50 translate-middle-x text-center text-white" style="top: 10%;">
+        <h1 class="display-3 fw-bold animate__animated animate__fadeIn animate__delay-1s">Our Services</h1>
+        <p class="fs-3 mt-4 animate__animated animate__fadeIn animate__delay-2s">Providing innovative solutions to meet all your needs</p>
+    </div>
+</div>
+
+<!-- Introduction Section -->
+<div class="p-5 bg-light">
+    <div class="container text-center">
+        <h2 class="h2 fw-semibold text-dark mb-4 animate__animated animate__fadeIn animate__delay-3s">Why Choose Us?</h2>
+        <p class="h5 text-secondary mb-4 animate__animated animate__fadeIn animate__delay-4s">
+            At Online Shopping Company, we offer a wide range of services tailored to meet the specific needs of our clients. Whether you're an individual looking for top-quality products or a business seeking customized solutions, we are dedicated to providing you with innovative, high-quality, and cost-effective services that you can trust.
+        </p>
+        <p class="h5 text-secondary mb-4 animate__animated animate__fadeIn animate__delay-5s">
+            Our professional team brings years of experience and expertise to every project, ensuring that each client receives the best possible experience and outcome.
+        </p>
+    </div>
+</div>
+
+<!-- Services Section -->
+<div class="py-5 px-4 bg-white">
+    <div class="container text-center">
+        <h2 class="h2 fw-semibold text-dark mb-4 animate__animated animate__fadeIn animate__delay-6s">Our Services</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- Service 1 -->
+            <div class="col">
+                <div class="card shadow-lg border-0 rounded-3 transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                    <img class="card-img-top w-25 mx-auto mt-4 mb-4" src="{% static 'gg.jpg' %}" alt="Service 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Product Consultation</h5>
+                        <p class="card-text text-secondary">
+                            Our product consultation services are designed to help you choose the right solutions for your needs. We analyze your requirements and recommend the best options available.
+                        </p>
+                        <a href="#consultation" class="btn btn-primary px-4 py-2">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="col">
+                <div class="card shadow-lg border-0 rounded-3 transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                    <img class="card-img-top w-25 mx-auto mt-4 mb-4" src="{% static 'h3.jpg' %}" alt="Service 2">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Custom Solutions</h5>
+                        <p class="card-text text-secondary">
+                            We specialize in providing custom-tailored solutions that match the unique needs of your business. From design to execution, we handle everything for you.
+                        </p>
+                        <a href="#custom-solutions" class="btn btn-primary px-4 py-2">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="col">
+                <div class="card shadow-lg border-0 rounded-3 transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                    <img class="card-img-top w-25 mx-auto mt-4 mb-4" src="{% static 'm.jpg' %}" alt="Service 3">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">24/7 Customer Support</h5>
+                        <p class="card-text text-secondary">
+                            Our customer support team is available 24/7 to assist you with any queries or concerns. We ensure you receive timely help whenever you need it.
+                        </p>
+                        <a href="#support" class="btn btn-primary px-4 py-2">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Detailed Services Section -->
+<div class="bg-light py-5">
+    <div class="container text-center">
+        <h2 class="h2 fw-semibold text-dark mb-4 animate__animated animate__fadeIn animate__delay-7s">Our Service Commitment</h2>
+        <p class="h5 text-secondary mb-4">
+            We are committed to providing exceptional service across all areas. Below are some of the additional services we provide to ensure your satisfaction:
+        </p>
+
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <!-- Service 4 -->
+            <div class="col">
+                <div class="card shadow-lg border-0 rounded-3">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Fast Delivery</h5>
+                        <p class="card-text text-secondary">
+                            We ensure quick and reliable delivery for all our products, with multiple delivery options to meet your needs. Get your products on time, every time!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="col">
+                <div class="card shadow-lg border-0 rounded-3">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Secure Payment Options</h5>
+                        <p class="card-text text-secondary">
+                            Your security is our priority. We offer a range of secure payment options to give you peace of mind when making purchases.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action Section -->
+<div class="bg-primary py-5 text-white text-center">
+    <h2 class="h2 fw-semibold mb-4">Ready to Experience Exceptional Service?</h2>
+    <p class="h5 mb-4">Take advantage of our expert services and let us help you achieve your goals with ease and efficiency.</p>
+    <a href="#" class="btn btn-success btn-lg px-5 py-3">Contact Us Now</a>
+</div>
+
+{% endblock %}

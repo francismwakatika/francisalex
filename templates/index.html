@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Hero Section with a Product Banner -->
+<div class="position-relative" style="height: 35.6em; padding-top: 20px;">
+    <img class="img-fluid w-100 h-100" src="{% static 'C7.jpg' %}" alt="Shop Banner" style="object-fit: cover; transition: opacity 0.5s ease-in-out;" />
+    <div class="position-absolute top-50 start-50 translate-middle text-center px-4">
+        <h1 class="display-4 text-white bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text shadow-lg animate__animated animate__fadeIn animate__delay-1s">
+            Welcome to Our Online Shop
+        </h1>
+        <p class="h4 text-white mt-4 animate__animated animate__fadeIn animate__delay-2s">
+            Discover the best deals and shop the latest products now!
+        </p>
+    </div>
+</div>
+
+<!-- Featured Products Section -->
+<div class="container py-5">
+    <h2 class="text-3xl font-weight-bold text-center mb-5 animate__animated animate__fadeIn animate__delay-3s">Featured Products</h2>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <!-- Product 1 -->
+        <div class="col">
+            <div class="card shadow-lg border-0 rounded-lg overflow-hidden transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:bg-light animate__animated animate__fadeIn animate__delay-4s">
+                <a href="#">
+                    <img class="card-img-top" src="{% static 'B2.jpg' %}" alt="Product 1" style="object-fit: cover; height: 200px; transition: transform 0.3s ease-in-out;" />
+                </a>
+                <div class="card-body">
+                    <a href="#">
+                        <h5 class="card-title text-dark">Virtualdj</h5>
+                    </a>
+                    <p class="card-text text-muted">This is a description of an amazing product that everyone should have. Available in multiple quality and dulability.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="h5 text-dark">$409.99</span>
+                        <a href="#" class="btn btn-primary btn-sm">
+                            Buy Now
+                            <svg class="bi bi-arrow-right-circle ms-2" width="16" height="16" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="col">
+            <div class="card shadow-lg border-0 rounded-lg overflow-hidden transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:bg-light animate__animated animate__fadeIn animate__delay-5s">
+                <a href="#">
+                    <img class="card-img-top" src="{% static 'B3.jpg' %}" alt="Product 2" style="object-fit: cover; height: 200px; transition: transform 0.3s ease-in-out;" />
+                </a>
+                <div class="card-body">
+                    <a href="#">
+                        <h5 class="card-title text-dark">spiker</h5>
+                    </a>
+                    <p class="card-text text-muted">Experience cutting-edge technology with this exclusive gadget. Perfect for all tech enthusiasts.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="h5 text-dark">$299.99</span>
+                        <a href="#" class="btn btn-primary btn-sm">
+                            Buy Now
+                            <svg class="bi bi-arrow-right-circle ms-2" width="16" height="16" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="col">
+            <div class="card shadow-lg border-0 rounded-lg overflow-hidden transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:bg-light animate__animated animate__fadeIn animate__delay-6s">
+                <a href="#">
+                    <img class="card-img-top" src="{% static 'G1.jpg' %}" alt="Product 3" style="object-fit: cover; height: 200px; transition: transform 0.3s ease-in-out;" />
+                </a>
+                <div class="card-body">
+                    <a href="#">
+                        <h5 class="card-title text-dark">PHONES</h5>
+                    </a>
+                    <p class="card-text text-muted">Good appearance,attractive and dulability phone . Comfort and style in one package.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="h5 text-dark">$99.99</span>
+                        <a href="#" class="btn btn-primary btn-sm">
+                            Buy Now
+                            <svg class="bi bi-arrow-right-circle ms-2" width="16" height="16" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // Add fade-in-up effect on scroll using Animate.css classes dynamically
+    const animatedElements = document.querySelectorAll('.animate__animated');
+
+    const animateOnScroll = () => {
+        animatedElements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            const inView = rect.top <= window.innerHeight * 0.9;
+            if (inView && !el.classList.contains('animate__fadeInUp')) {
+                el.classList.add('animate__fadeInUp');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+
+    // Smooth zoom & tilt effect on hover for cards
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = (y - centerY) / 15;
+            const rotateY = (x - centerX) / 15;
+
+            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
+        });
+
+        card.addEventListener('mouseenter', () => {
+            card.style.transition = 'transform 0.3s ease';
+        });
+    });
+</script>
+
+{% endblock %}

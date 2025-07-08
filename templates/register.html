@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="card shadow-lg p-4" style="border-radius: 15px;">
+    <h2 class="text-center mb-4">Creat Account</h2>
+    <form action="" method="post">
+      {% csrf_token %}
+
+    <div class="mb-4">
+      <label for="exampleFormControlInput1" class="form-label" style="font-weight: bold; font-size: 16px;">User Name</label>
+      <input type="text" class="form-control shadow-sm" name="username" placeholder="Enter your username" style="border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: all 0.3s;">
+    </div>
+
+    <div class="mb-4">
+      <label for="exampleFormControlInput2" class="form-label" style="font-weight: bold; font-size: 16px;">Email Address</label>
+      <input type="email" class="form-control shadow-sm" name="email" placeholder="name@example.com" style="border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: all 0.3s;">
+    </div>
+
+    <div class="mb-4">
+      <label for="exampleFormControlInput3" class="form-label" style="font-weight: bold; font-size: 16px;">Password</label>
+      <input type="password" class="form-control shadow-sm" name="password" placeholder="********" style="border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: all 0.3s;">
+    </div>
+
+    <div class="mb-4">
+      <label for="exampleFormControlInput4" class="form-label" style="font-weight: bold; font-size: 16px;">Confirm Password</label>
+      <input type="password" class="form-control shadow-sm" name="password1" placeholder="********" style="border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: all 0.3s;">
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary" style="padding: 12px 20px; font-size: 16px; width: 100%; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: background-color 0.3s;">
+        Register
+      </button>
+      <p>if you have already registered login here <a href="http:{%url 'login'%}">login</a></p>
+    </div>
+  </div>
+  </form>
+</div>
+
+<script>
+  // Focus effect to enhance user experience
+  document.querySelectorAll('.form-control').forEach(input => {
+    input.addEventListener('focus', function() {
+      this.style.boxShadow = '0 0 10px rgba(92, 107, 192, 0.6)';
+      this.style.borderColor = '#5c6bc0';
+    });
+    input.addEventListener('blur', function() {
+      this.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+      this.style.borderColor = '#ccc';
+    });
+  });
+</script>
+
+{% endblock %}

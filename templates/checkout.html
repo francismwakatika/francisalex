@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row g-4">
+
+        <!-- Order Summary Section -->
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title h5 mb-4">Order Summary</h2>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="table-light">
+                                <tr>
+                                    <th scope="col">Product</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Total Cost</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in cart_items %}
+                                <tr>
+                                    <td>{{ item.product.title }}</td>
+                                    <td>{{ item.quantity }}</td>
+                                    <td>${{ item.total_cost }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="d-flex justify-content-between mt-3 fw-bold">
+                        <span>Total</span>
+                        <span>${{ total_cart_price }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shipping Address Section -->
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title h5 mb-4">Shipping Address</h2>
+
+                    {% if address %}
+                    <form action="{% url 'checkout' %}" method="POST">
+                        {% csrf_token %}
+                        {% for addr in address reversed %}
+                        <div class="border-bottom py-2 d-flex justify-content-between align-items-start">
+                            <div>
+                                <div><strong>Name:</strong> {{ addr.name }}</div>
+                                <div><strong>District:</strong> {{ addr.locality }}</div>
+                                <div><strong>Region:</strong> {{ addr.city }}</div>
+                                <div><strong>Phone Number:</strong> {{ addr.mobile }}</div>
+                                <div><strong>ZipCode:</strong> {{ addr.zipcode }}</div>
+                                <div><strong>Country:</strong> {{ addr.country }}</div>
+                            </div>
+                            <div class="form-check mt-2">
+                                <input class="form-check-input" type="radio" name="shipping_address" id="address_{{ addr.id }}" value="{{ addr.id }}">
+                                <label class="btn btn-primary btn-sm" for="address_{{ addr.id }}">Select</label>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                        <!-- Payment Method Section -->
+                        <div class="mt-4">
+                            <div class="d-flex justify-content-between">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="payment_method" id="payment_method_cash_on_delivery" value="cash_on_delivery" checked>
+                                    <label class="btn btn-success btn-sm" for="payment_method_cash_on_delivery">Cash on Delivery</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="payment_method" id="payment_method_online_payment" value="online_payment">
+                                    <label class="btn btn-primary btn-sm" for="payment_method_online_payment">Online Payment</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-success mt-4 w-100">Proceed to Payment</button>
+                    </form>
+                    {% else %}
+                    <p>No shipping address found. Please add an address to proceed.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

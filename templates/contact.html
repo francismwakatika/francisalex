@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Hero Section with Background Image -->
+<div class="position-relative" style="height: 35.6em;">
+    <img class="img-fluid w-100 h-100 object-cover" src="{% static 'C1.jpg' %}" alt="Contact Us Banner" />
+    <div class="position-absolute top-0 start-50 translate-middle-x text-center text-white" style="top: 4rem;">
+        <h1 class="display-4 fw-bold animate__animated animate__fadeIn animate__delay-1s">Get in Touch</h1>
+        <p class="fs-3 mt-4 animate__animated animate__fadeIn animate__delay-2s">We are here to assist you with any questions or concerns</p>
+    </div>
+</div>
+
+<!-- Contact Information Section -->
+<div class="py-5 px-3 bg-light">
+    <div class="container text-center">
+        <h2 class="h3 fw-semibold text-dark mb-4 animate__animated animate__fadeIn animate__delay-3s">Contact Information</h2>
+        <p class="fs-5 text-muted mb-4 animate__animated animate__fadeIn animate__delay-4s">
+            We're happy to answer any questions you may have! You can reach us through any of the channels below.
+        </p>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- Address -->
+            <div class="col">
+                <div class="card shadow border-0 transform transition duration-300 hover:scale-105">
+                    <div class="card-body">
+                        <h3 class="h5 fw-semibold text-dark mb-4">Our Office</h3>
+                        <p class="text-muted mb-4">
+                            1234 KARIAKOO, Suite 100, Dar es salaam, Tanzania
+                        </p>
+                        <a href="https://www.google.com/maps" class="text-decoration-none text-primary hover:text-primary-dark transform transition duration-300">
+                            View on Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="col">
+                <div class="card shadow border-0 transform transition duration-300 hover:scale-105">
+                    <div class="card-body">
+                        <h3 class="h5 fw-semibold text-dark mb-4">Phone</h3>
+                        <p class="text-muted mb-4">
+                            Call us at: <strong>+255617216469</strong>
+                        </p>
+                        <a href="tel:+255689859255" class="text-decoration-none text-primary hover:text-primary-dark transform transition duration-300">
+                            Call Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="col">
+                <div class="card shadow border-0 transform transition duration-300 hover:scale-105">
+                    <div class="card-body">
+                        <h3 class="h5 fw-semibold text-dark mb-4">Email</h3>
+                        <p class="text-muted mb-4">
+                            For inquiries, reach out to us at: <strong>francismwasongwe@gmail.com</strong>
+                        </p>
+                        <a href="mailto:francismwasongwe@gmail.com" class="text-decoration-none text-primary hover:text-primary-dark transform transition duration-300">
+                            Send an Email
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Social Media Section -->
+<div class="py-5 bg-light">
+    <div class="container text-center">
+        <h2 class="h3 fw-semibold text-dark mb-4 animate__animated animate__fadeIn animate__delay-7s">Follow Us</h2>
+        <p class="fs-5 text-muted mb-4 animate__animated animate__fadeIn animate__delay-8s">
+            Stay connected with us on social media for the latest updates and offers.
+        </p>
+        <div class="d-flex justify-content-center gap-4">
+            <!-- Instagram -->
+            <a href="https://www.instagram.com" target="_blank" class="text-pink-600 hover:text-pink-800 transform transition duration-300">
+                <i class="fab fa-instagram fa-2x"></i>
+            </a>
+
+            <!-- Twitter -->
+            <a href="https://www.twitter.com" target="_blank" class="text-info hover:text-info-dark transform transition duration-300">
+                <i class="fab fa-twitter fa-2x"></i>
+            </a>
+
+            <!-- GitHub -->
+            <a href="https://www.facebook.com" target="_blank" class="text-dark hover:text-dark-900 transform transition duration-300">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+
+            <a href="https://linkedin.com" target="_blank" class="text-dark hover:text-dark-900 transform transition duration-300">
+                <i class="fab fa-linkedin fa-2x"></i>
+            </a>
+        </div>
+    </div>
+</div>
+<script>
+// Animate on Scroll using Animate.css classes
+const animatedItems = document.querySelectorAll('.animate__animated');
+
+const animateVisibleElements = () => {
+    animatedItems.forEach(item => {
+        const rect = item.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.9 && !item.classList.contains('animate__fadeInUp')) {
+            item.classList.add('animate__fadeInUp');
+        }
+    });
+};
+
+window.addEventListener('scroll', animateVisibleElements);
+window.addEventListener('load', animateVisibleElements);
+
+// Interactive Hover for Info Cards
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        card.style.transition = 'transform 0.5s ease, box-shadow 0.5s ease';
+        card.style.transform = 'scale(1.05)';
+        card.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.15)';
+    });
+
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const rotateX = ((y - rect.height / 2) / 20).toFixed(2);
+        const rotateY = ((x - rect.width / 2) / 20).toFixed(2);
+        card.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'scale(1)';
+        card.style.boxShadow = 'none';
+    });
+});
+
+// Smooth Icon Hover Effect
+document.querySelectorAll('.fab').forEach(icon => {
+    icon.addEventListener('mouseenter', () => {
+        icon.style.transition = 'transform 0.3s ease';
+        icon.style.transform = 'scale(1.2) rotate(5deg)';
+    });
+
+    icon.addEventListener('mouseleave', () => {
+        icon.style.transform = 'scale(1) rotate(0deg)';
+    });
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br><br><br>
+<div class="container py-5">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+        {% if products %}
+            {% for pro in products reversed %}
+            <div class="col animate-fade-in">
+                <div class="card h-100 shadow-sm product-card">
+                    <!-- Image Section -->
+                        <img src="{{ pro.product_image.url }}" class="card-img-top" alt="{{ pro.title }}">
+                    </a>
+
+                    <!-- Product Info -->
+                    <div class="card-body">
+                            <h5 class="card-title text-dark">{{ pro.title }}</h5>
+                        </a>
+                        <div class="d-flex align-items-center gap-2">
+                            <p class="mb-0 text-primary fw-bold">${{ pro.selling_price }}</p>
+                            <small class="text-muted text-decoration-line-through">${{ pro.discount_price }}</small>
+                        </div>
+                    </div>
+
+                    <!-- View Button -->
+                    <div class="card-footer bg-white border-0">
+                        <a href="{%url 'product' pro.id %}" class="btn btn-success w-100">View Product</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <h1 class="text-center text-muted">No products available</h1>
+        {% endif %}
+    </div>
+
+    <!-- Pagination Controls -->
+    <nav class="mt-5 d-flex justify-content-center animate-slide-up">
+        <ul class="pagination">
+            {% if products.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page=1">« First</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ products.previous_page_number }}">Previous</a></li>
+            {% endif %}
+
+            {% for num in products.paginator.page_range %}
+                {% if products.number == num %}
+                    <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+                {% else %}
+                    <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                {% endif %}
+            {% endfor %}
+
+            {% if products.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ products.next_page_number }}">Next</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ products.paginator.num_pages }}">Last »</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+
+<style>
+    /* Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+        from { transform: translateY(30px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    .animate-fade-in {
+        animation: fadeIn 0.6s ease forwards;
+    }
+
+    .animate-slide-up {
+        animation: slideUp 0.6s ease forwards;
+    }
+
+    /* Product Card Enhancements */
+    .product-card {
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        transform-style: preserve-3d;
+        will-change: transform, box-shadow;
+    }
+
+    .product-card:hover {
+        transform: scale(1.05) rotateX(2deg) rotateY(2deg);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-card img {
+        transition: transform 0.4s ease-in-out;
+    }
+
+    .product-card:hover img {
+        transform: scale(1.1);
+    }
+
+    .card-title {
+        transition: color 0.3s ease;
+    }
+
+    .card-title:hover {
+        color: #0d6efd;
+    }
+
+    /* Button Interaction */
+    .btn {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Pagination Animation */
+    .pagination .page-link {
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .pagination .page-link:hover {
+        background-color: #f8f9fa;
+        transform: scale(1.1);
+    }
+</style>
+{% endblock %}

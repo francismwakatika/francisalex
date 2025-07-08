@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="text-center text-primary mb-4">Category : {{ category_name }}</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for co in product %}
+        <br>
+        <div class="col">
+            <div class="card h-100 shadow-lg rounded" style="transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <img src="{{ co.product_image.url }}" class="card-img-top rounded-top" alt="{{ co.name }}"
+                     style="transition: opacity 0.3s ease-in-out;">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-dark">{{ co.title }}</h5>
+                    <p class="card-text text-muted">${{ co.selling_price }}</p>
+                    <p class="card-text text-muted">${{ co.discount_price }}</p>
+                    <a href="{% url 'product' co.id %}" class="btn btn-warning btn-lg w-100">view product</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    // Apply hover transformations with JavaScript for smooth transition
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        card.addEventListener('mouseover', () => {
+            card.style.transform = 'scale(1.05)';
+            card.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.2)';
+        });
+
+        card.addEventListener('mouseout', () => {
+            card.style.transform = 'scale(1)';
+            card.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
+        });
+    });
+</script>
+{% endblock %}

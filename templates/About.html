@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Hero Section with Background Image -->
+<div class="position-relative" style="height: 35.6em;">
+    <img class="object-cover w-100 h-100" src="{% static 'C2.jpg' %}" alt="About Us Banner" />
+    <div class="position-absolute top-50 start-50 translate-middle text-center text-white">
+        <h1 class="display-3 fw-bold animate__animated animate__fadeIn animate__delay-1s">About Us</h1>
+        <p class="fs-4 mt-4 animate__animated animate__fadeIn animate__delay-2s">Your trusted partner in high-quality products and exceptional service</p>
+    </div>
+</div>
+
+<!-- About Us Section -->
+<div class="p-5 p-md-5 bg-light">
+    <div class="container text-center">
+        <h2 class="display-5 fw-semibold text-dark mb-4 animate__animated animate__fadeIn animate__delay-3s">Who We Are</h2>
+        <p class="fs-5 text-muted mb-4 animate__animated animate__fadeIn animate__delay-4s">
+            We are a dynamic company dedicated to offering a diverse range of top-quality products to meet the needs of our customers. Our mission is to provide exceptional service and unbeatable value, ensuring that every experience with us is a memorable one. Whether you're looking for the latest gadgets, fashion, or home essentials, we have something for everyone.
+        </p>
+        <p class="fs-5 text-muted mb-4 animate__animated animate__fadeIn animate__delay-5s">
+            Founded on the principles of innovation, quality, and customer satisfaction, we aim to build long-lasting relationships with our clients by always delivering beyond expectations.
+        </p>
+    </div>
+</div>
+
+<!-- Our Values Section -->
+<div class="bg-white py-5">
+    <div class="container text-center">
+        <h2 class="display-5 fw-semibold text-dark mb-4 animate__animated animate__fadeIn animate__delay-6s">Our Core Values</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4 px-4 px-md-5">
+            <!-- Value 1 -->
+            <div class="col">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="card-title fs-4 fw-semibold text-dark mb-3">Innovation</h5>
+                        <p class="card-text text-muted">We believe in continuous innovation, offering the latest products and solutions to meet the evolving needs of our customers.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Value 2 -->
+            <div class="col">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="card-title fs-4 fw-semibold text-dark mb-3">Quality</h5>
+                        <p class="card-text text-muted">We are committed to providing only the highest-quality products, ensuring that every purchase is worthwhile.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Value 3 -->
+            <div class="col">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="card-title fs-4 fw-semibold text-dark mb-3">Customer Satisfaction</h5>
+                        <p class="card-text text-muted">Our customers are at the heart of everything we do. We aim to exceed expectations and deliver exceptional service at every step of the journey.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Our Team Section -->
+<div class="py-5 bg-light">
+    <div class="container text-center">
+        <h2 class="display-5 fw-semibold text-dark mb-4 animate__animated animate__fadeIn animate__delay-7s">Meet Our Team</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- Team Member 1 -->
+            <div class="col">
+                <div class="text-center">
+                    <div data-aos="fade-up" data-aos-anchor=".other-element"></div>  <div data-aos="fade-in" data-aos-duration="4000"></div>
+                    <img class="rounded-circle w-50 mb-3" src="{% static 'frans.jpeg' %}" alt="Team Member 1">
+                    <h3 class="fs-4 fw-semibold text-dark">Francis Mwakatika</h3>
+                    <p class="text-muted">CEO & Founder</p>
+                    <p class="text-muted">With over 20 years of experience in the industry, Francis leads the company with a passion for excellence and innovation.</p>
+                </div>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="col">
+                <div class="text-center">
+                    <img class="rounded-circle w-50 mb-3" src="{% static 'konde.png' %}" alt="Team Member 2">
+                    <h3 class="fs-4 fw-semibold text-dark">Osward Philimon</h3>
+                    <p class="text-muted">Marketing Director</p>
+                    <p class="text-muted">Osward has a knack for understanding customer needs and developing strategies that drive growth and brand loyalty.</p>
+                </div>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="col">
+                <div class="text-center">
+                    <img class="rounded-circle w-50 mb-3" src="{% static 'baby.png' %}" alt="Team Member 3">
+                    <h3 class="fs-4 fw-semibold text-dark">Grace Mwakalukwa</h3>
+                    <p class="text-muted">Operations Manager</p>
+                    <p class="text-muted">Grace ensures that everything runs smoothly behind the scenes, ensuring top-notch service for our customers.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action Section -->
+<div class="bg-primary py-5 text-white text-center">
+    <h2 class="display-5 fw-semibold mb-3">Ready to Experience the Best?</h2>
+    <p class="fs-4 mb-5">Join thousands of satisfied customers who trust us for high-quality products and services.</p>
+    <a href="{%url 'show_cart'%}" class="btn btn-success btn-lg px-4 py-2">Shop Now</a>
+</div>
+
+{% endblock %}

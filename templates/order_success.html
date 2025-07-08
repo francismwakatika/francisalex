@@ -1,0 +1,24 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container px-4 py-4">
+        <h2 class="h5 font-weight-semibold mb-3">Order Successfully Placed</h2>
+
+        <div class="bg-white p-4 rounded shadow-sm">
+            <h3 class="h6 font-weight-semibold">Order Details</h3>
+            <!-- Other order details like shipping address, order items, etc. -->
+
+            <div class="mt-3">
+                <h4 class="h6 font-weight-semibold">Payment Method</h4>
+                <p>
+                    {% if payment %}
+                        Payment Method: {{ payment.get_payment_method_display }}
+                    {% else %}
+                        No payment method available.
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
